@@ -3,9 +3,43 @@
     --secondary-color:#406882;
     --third-color:#6998AB;
     --forth-color:#B1D0E0;
+    text-shadow: none !important;
+    border: none !important;
 }
 
 #update{
     background-color: var(--primary-color);
     color: white;
 }
+
+.header{
+background-color: transparent !important;
+height: 200px !important;
+}
+.content{
+    border-radius: 40px 40px 0 0 ;
+    background-color: red !important;
+
+}
+#addPage{
+    background-color: yellow !important;   
+}
+.transparentBg{
+    background-color: transparent !important;
+    color: green !important;
+}
+
+.icon{
+    padding: 16px !important;
+    border-radius: 20px !important;
+}
+.ui-shadow {
+    /* -webkit-box-shadow: 0 1px 3px rgb(0 0 0 / 15%); */
+    /* -moz-box-shadow: 0 1px 3px rgba(0,0,0,.15); */
+    box-shadow: 0 1px 3px rgb(0 0 0 / 15%);
+}
+.icon:after{
+    background-color:var(--primary-color) !important;
+}
+
+
