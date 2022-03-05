@@ -1,24 +1,33 @@
 *{
-    --primary-color:#1A374D;
-    --secondary-color:#406882;
-    --third-color:#6998AB;
-    --forth-color:#B1D0E0;
+    --primary-color:#06150B;
+    --secondary-color:#0A502F;
+    --third-color:#137e4c93;
+    --forth-color:#1F6B4C;
+
+    --white-color:#b5dbb9de;
+    --black-color:#000;
     text-shadow: none !important;
     border: none !important;
 }
 
-#update{
+#update ,#del{
     background-color: var(--primary-color);
     color: white;
 }
 
 .header{
 background-color: transparent !important;
-height: 200px !important;
+height: 180px !important;
+
+}
+.bgImage{
+    background-position: cover;
+    background-image: url("/images/leaf.jpg");
 }
 .content{
     border-radius: 40px 40px 0 0 ;
-    background-color: red !important;
+    background-color:var(--white-color)  !important;
+    height: 100% !important;
 
 }
 #addPage{
@@ -42,4 +51,27 @@ height: 200px !important;
     background-color:var(--primary-color) !important;
 }
 
+input{
+      height: 25px !important;
+      margin: 0 auto !important;
+      border: none !important; /* <-- This thing here */
+      border:solid 1px #ccc !important;
+      border-radius: 10px !important;
+}
+.inputContainer{
+    display:inline;
+
+}
+label{
+    font-size: 20px;
+    font-weight:bold ;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    color:var(--primary-color);
+}
+
+.footer{
+    background-color: transparent !important;
+padding:20px;
+}
 
