@@ -1,0 +1,11 @@
+*{
+    --primary-color:#1A374D;
+    --secondary-color:#406882;
+    --third-color:#6998AB;
+    --forth-color:#B1D0E0;
+}
+
+#update{
+    background-color: var(--primary-color);
+    color: white;
+}
