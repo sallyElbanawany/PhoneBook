@@ -33,6 +33,7 @@ $(document).ready(function () {
     // 4. The "Save" button, for saving a new entry details...
     $("#save").click(function () {
         currentEntry = addNewEntry();
+        console.log("#save",currentEntry);
         displayEntryList("#list");
         saveList();
     });
@@ -87,6 +88,7 @@ let entries = [];		// Start with a simple array
 
 function addEntry(name, mobile, gender, email, dob) {
     let e = new Entry(name, mobile, gender, email, dob);
+    console.log("addEntry",e);
     entries.push(e);
     sortEntries();
     return e;
@@ -144,6 +146,7 @@ function getEntryFromDisplayName(displayName) {
 }
 
 function displayEntry(e) {
+    console.table(e);
     $("#fullname").val(e.name);
     $("#mobile").val(e.mobile);
     $("#mobilebutton").attr("href", "tel:" + e.mobile);
@@ -168,11 +171,13 @@ function updateEntry() {
 }
 
 function addNewEntry() {
+    console.log("fullName",$("#fullname2").val());
     let name = $("#fullname2").val(),
         mobile = $("#mobile2").val(),
         gender = $("#gender2").val(),
         email = $("#email2").val(),
         dob = $("#bday2").val();
+        console.log("from new entry",name);
     if (name !== "") {
         return addEntry(name, mobile, gender, email, dob);
     } else {
