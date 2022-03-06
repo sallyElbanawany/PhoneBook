@@ -42,7 +42,7 @@
 
         <div data-role="footer" data-position="fixed">
             <nav>
-                <a href="#entry" data-role="button" data-inline="true" data-mini="true" data-icon="plus" id="add">Add
+                <a href="#addPage" data-role="button" data-inline="true" data-mini="true" data-icon="plus" id="add">Add
                     Item</a>
             </nav>
         </div>
@@ -70,56 +70,61 @@
             <input type="tel" id="mobile" />
             <!-- <a data-role="button" id="mobilebutton" data-mini="true"
                 href="">Call</a> -->
-                <label for="DropDownList">Gender:</label>
-                <select name="DropDownList" id="DropDownList" data-mini="true">
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                </select>
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender" data-mini="true">
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select>
             <label for="email">Email:</label>
             <input type="email" id="email" />
             <label for="bday">Birthday:</label>
             <input type="date" id="bday" />
             </form>
-                <nav class="text-center footer">
-                    <a href="#main" id="update" data-role="button" data-inline="true" data-mini="true"
-                        data-icon="refresh">Update</a>
-                    <a href="#main" id="del" data-role="button" data-inline="true" data-mini="true" data-icon="minus">Delete
-                        Item</a>
-                </nav>
-            </div>
+            <nav class="text-center footer">
+                <a href="#main" id="update" data-role="button" data-inline="true" data-mini="true"
+                    data-icon="refresh">Update</a>
+                <a href="#main" id="del" data-role="button" data-inline="true" data-mini="true" data-icon="minus">Delete
+                    Item</a>
+            </nav>
         </div>
+    </div>
 
-       
+
     </div>
     <!-- -------------------Add item ---------------------------- -->
-    <!-- <div data-role="page" id="addPage" >
+    <div data-role="page" id="addPage" class="bgImage">
         <div data-role="header" class="header">
-            <h1 id="name">Fred Bloggs</h1>
             <a href="#" data-rel="back" data-icon="back" class="transparentBg icon"></a>
         </div>
 
         <div data-role="content" class="content">
-                <label for="fullname">Full Name:</label>
-                <input type="text" id="fullname" />
-                <label for="mobile">Mobile number:</label>
-                <input type="tel" id="mobile" /><a data-role="button" id="mobilebutton" data-mini="true"
-                    href="">Call</a>
-                <label for="home">Home number:</label>
-                <input type="tel" id="home" /><a data-role="button" id="homebutton" data-mini="true" href="">Call</a>
-                <label for="email">Email:</label>
-                <input type="email" id="email" /><a data-role="button" id="mailbutton" data-mini="true" href="">Send
-                    email</a>
-                <label for="bday">Birthday:</label>
-                <input type="date" id="bday" />
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" />
+            <label for="mobile">Mobile number:</label>
+            <input type="tel" id="mobile" />
+            <!-- <a data-role="button" id="mobilebutton" data-mini="true" href="">Call</a> -->
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender" data-mini="true">
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select>
+            <label for="email">Email:</label>
+            <input type="email" id="email" />
+            <!-- <a data-role="button" id="mailbutton" data-mini="true" href="">Send
+                email</a> -->
+            <label for="bday">Birthday:</label>
+            <input type="date" id="bday" />
             </form>
         </div>
 
-        <div data-role="footer" data-position="fixed"> -->
-    <!-- <nav>
-                <a href="#main" id="update" data-role="button" data-inline="true" data-mini="true"
-                    data-icon="refresh">Add</a>
-            </nav> -->
-    </div>
+        <div data-role="footer" data-position="fixed">
+            <nav class="text-center footer">
+                <a href="#main" id="save" data-role="button" data-inline="true" data-mini="true"
+                    data-icon="refresh">Save</a>
+                <a href="#main" id="cancel" data-role="button" data-inline="true" data-mini="true"
+                    data-icon="minus">Cancel</a>
+            </nav>
+        </div>
     </div>
 
 
