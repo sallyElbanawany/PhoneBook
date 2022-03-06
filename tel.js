@@ -208,7 +208,7 @@ function entryList(){
  * @returns {*|jQuery|HTMLElement}
  */
 function displayEntryList(listElement){
-    $(listElement).html(entryList()).listview('refresh');
+    $(listElement).html(entryList()).listview().listview('refresh');
     return $(listElement);
 }
 
