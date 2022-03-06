@@ -22,13 +22,16 @@ height: 180px !important;
 }
 .bgImage{
     background-position: cover;
-    background-image: url("/images/leaf.jpg");
+    background-image: url("images/leaf.jpg");
 }
 .content{
     border-radius: 40px 40px 0 0 ;
     background-color:var(--white-color)  !important;
     height: 100% !important;
-
+    -webkit-border-radius: 40px 40px 0 0 ;
+    -moz-border-radius: 40px 40px 0 0 ;
+    -ms-border-radius: 40px 40px 0 0 ;
+    -o-border-radius: 40px 40px 0 0 ;
 }
 #addPage{
     background-color: yellow !important;   
@@ -41,6 +44,10 @@ height: 180px !important;
 .icon{
     padding: 16px !important;
     border-radius: 20px !important;
+    -webkit-border-radius: 20px !important;
+    -moz-border-radius: 20px !important;
+    -ms-border-radius: 20px !important;
+    -o-border-radius: 20px !important;
 }
 .ui-shadow {
     /* -webkit-box-shadow: 0 1px 3px rgb(0 0 0 / 15%); */
@@ -54,9 +61,13 @@ height: 180px !important;
 input{
       height: 25px !important;
       margin: 0 auto !important;
-      border: none !important; /* <-- This thing here */
-      border:solid 1px #ccc !important;
+      border: none !important;
+      /*<--Thisthinghere*/border:solid 1px #ccc !important;
       border-radius: 10px !important;
+      -webkit-border-radius: 10px !important;
+      -moz-border-radius: 10px !important;
+      -ms-border-radius: 10px !important;
+      -o-border-radius: 10px !important;
 }
 .inputContainer{
     display:inline;
