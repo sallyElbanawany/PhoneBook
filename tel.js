@@ -1,4 +1,4 @@
-var currentEntry = "";
+let currentEntry = "";
 
 $(document).ready(function () {
     init();
@@ -8,7 +8,7 @@ $(document).ready(function () {
     $("#add").click(function () {
         currentEntry = "";
         // $("#fullname").val(null);
-        // var e = new Entry();    // An empty one.
+        // let e = new Entry();    // An empty one.
         // displayEntry(e);
 
     });
@@ -44,7 +44,7 @@ $(document).ready(function () {
 
 $(document).on('click', "#list a", function () {
     currentEntry = $(this).text();                  // The text in the <a> element, which is an Entry's displayName()
-    var e = getEntryFromDisplayName(currentEntry);  // This get a reference to the actual Entry
+    let e = getEntryFromDisplayName(currentEntry);  // This get a reference to the actual Entry
     displayEntry(e);                                // This puts it into the form on the 'entry' page
 });
 
@@ -53,7 +53,7 @@ function init() {
     displayEntryList("#list");
 }
 
-var Entry = function (name, mobile, gender, email, dob) {
+let Entry = function (name, mobile, gender, email, dob) {
     this.name = name;
     this.mobile = mobile;
     this.gender = gender;
@@ -62,14 +62,14 @@ var Entry = function (name, mobile, gender, email, dob) {
 }
 
 Entry.prototype.displayName = function () {
-    var firstnames, surname;
+    let firstnames, surname;
     firstnames = this.name.substring(0, this.name.lastIndexOf(" ")).trim();
     surname = this.name.substring(this.name.lastIndexOf(" ") + 1);
     return firstnames + " " + surname;
 }
 
 Entry.prototype.isBirthday = function () {
-    var bday = this.dob;
+    let bday = this.dob;
     bday.fullYear = new Date().fullYear;
     if (bday.getDate() === new Date().getDate()) {
         return true;
@@ -83,17 +83,17 @@ Entry.prototype.changeName = function (firstnames, surname) {
     return this;
 }
 
-var entries = [];		// Start with a simple array
+let entries = [];		// Start with a simple array
 
 function addEntry(name, mobile, gender, email, dob) {
-    var e = new Entry(name, mobile, gender, email, dob);
+    let e = new Entry(name, mobile, gender, email, dob);
     entries.push(e);
     sortEntries();
     return e;
 }
 
 function removeEntry(name) {
-    var pos = -1, index, entry = null;
+    let pos = -1, index, entry = null;
     for (index = 0; index < entries.length; index += 1) {
         if (name === entries[index].displayName()) {
             pos = index;
@@ -121,7 +121,7 @@ function sortEntries() {
 }
 
 function entryList() {
-    var index, list = "";
+    let index, list = "";
     for (index = 0; index < entries.length; index += 1) {
         list += "<li><a href='#entry'>" + entries[index].displayName() + "</a></li>"; // name='item'
     }
@@ -134,7 +134,7 @@ function displayEntryList(listElement) {
 }
 
 function getEntryFromDisplayName(displayName) {
-    var index, e;
+    let index, e;
     for (index = 0; index < entries.length; index += 1) {
         if (entries[index].displayName() === displayName) {
             return entries[index];
@@ -152,7 +152,7 @@ function displayEntry(e) {
     $("#mailbutton").attr("href", "mailto:" + e.email);
     $("#gender").val(e.gender);
     $("#genderbutton").attr("href", "tel:" + e.gender);
-    var bdate = e.dob;
+    let bdate = e.dob;
     //tel.js:151 Uncaught TypeError: e.dob.toISOString is not a function
     if (bdate != 'Invalid Date')
         $("#bday").val(e.dob.toISOString().substring(0, 10));
@@ -160,7 +160,7 @@ function displayEntry(e) {
 }
 
 function updateEntry() {
-    var e = getEntryFromDisplayName(currentEntry);
+    let e = getEntryFromDisplayName(currentEntry);
     e.name = $("#fullname").val();
     e.mobile = $("#mobile").val();
     e.gender = $("#gender").val();
@@ -169,7 +169,7 @@ function updateEntry() {
 }
 
 function addNewEntry() {
-    var name = $("#fullname").val(),
+    let name = $("#fullname").val(),
         mobile = $("#mobile").val(),
         gender = $("#gender").val(), //1,2
         email = $("#email").val(),
@@ -182,16 +182,16 @@ function addNewEntry() {
 }
 
 function saveList() {
-    var strList = JSON.stringify(entries);
+    let strList = JSON.stringify(entries);
     localStorage.phoneBook = strList;
 }
 
 function loadList() {
-    var strList;
+    let strList;
     strList = localStorage.phoneBook;
     if (strList) {
         entries = JSON.parse(strList);
-        var proto = new Entry();
+        let proto = new Entry();
         for (e in entries) {
             entries[e].__proto__ = proto;
             entries[e].dob = new Date(entries[e].dob);

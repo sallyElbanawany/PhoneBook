@@ -1,5 +1,5 @@
 *{
-    --primary-color:#06150B;
+    --primary-color:#346d56;
     --secondary-color:#0A502F;
     --third-color:#137e4c93;
     --forth-color:#1F6B4C;
@@ -10,10 +10,32 @@
     border: none !important;
 }
 
-#update ,#del{
-    background-color: var(--primary-color);
+#update {
+    background-color: var(--secondary-color);
     color: white;
 }
+
+#del{
+    background-color: rgb(80, 10, 10);
+    color: white;
+}
+
+#add{
+    padding: 16px !important;
+    border-radius: 26px !important;
+    -webkit-border-radius: 26px !important;
+    -moz-border-radius: 26px !important;
+    -ms-border-radius: 26px !important;
+    -o-border-radius: 26px !important;
+    height: 20px;
+    width:20px;
+    text-align: center;  
+
+}
+#add .ui-btn-icon-left:after {
+    background-color: transparent !important;
+}
+
 
 .header{
 background-color: transparent !important;
@@ -38,7 +60,6 @@ height: 180px !important;
 }
 .transparentBg{
     background-color: transparent !important;
-    color: green !important;
 }
 
 .icon{
@@ -74,15 +95,96 @@ input{
 
 }
 label{
-    font-size: 20px;
-    font-weight:bold ;
-    font-style: italic;
-    font-family: 'Times New Roman', Times, serif;
-    color:var(--primary-color);
+    font-size: 18px !important;
+    font-weight:bold !important;
+    font-style: italic !important;
+    font-family: 'Times New Roman', Times, serif !important;
+    color:var(--primary-color) !important;
+    margin-top: 5px;
 }
 
 .footer{
     background-color: transparent !important;
 padding:20px;
 }
+h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    color: white;
+    font-style: italic;
+}
+.mainHeader{
+    background-color: transparent !important;
+}
+#main{
+    background-color:var(--forth-color);
+    padding-top: 15px;
+    background-position: cover;
+    background-image: url("images/leaf.jpg");
+}
+.contant , #list ,li{
+    background-color: transparent !important;
+    margin:15px 5px;
+
+}
+ li {
+    
+    margin: 10px 5px !important;
+}
+a{
+    border-radius: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+
+}
+.ui-page-theme-a .ui-bar-inherit{
+    color: white !important;
+} 
+.contant li a {
+    background-color: white !important;
+    color: var(--forth-color) !important;
+    border:none !important;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    font-style: italic;
+    font-weight: 200px;
+
+}
+.ui-listview>li.ui-last-child{
+    -webkit-border-bottom-right-radius:unset;
+    border-bottom-right-radius: 40px !important;
+    -webkit-border-bottom-left-radius:unset;
+    border-bottom-left-radius:40px !important;
+}
+.ui-page-theme-a .ui-body-inherit{
+    border-radius: 13px;
+}
+.ui-input-has-clear {
+    padding-right: 0 !important;
+}
+#add.ui-btn-icon-left:after{
+    background-color: var(--secondary-color);
+}
+
+a:hover {
+    color: var(--third-color);
+}
+#entry input{
+    border-radius: 40px !important;
+    border:none !important;
+    padding: 10px !important;
+}
+
+ .ui-btn-icon-right:after{
+    background-color: var(--third-color) !important;   
+}
+
+#save{
+    background-color: var(--secondary-color);
+    color: white;    
+}
+
+#cancel{
+    background-color: rgb(80, 10, 10);
+    color: white;
+}
+
 

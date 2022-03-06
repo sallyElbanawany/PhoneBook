@@ -27,23 +27,21 @@
 
 <body>
     <div data-role="page" id="main">
-        <div data-role="header">
+        <div data-role="header" class="mainHeader">
             <heading>
                 <h1>Phone Book</h1>
             </heading>
         </div>
 
-        <div data-role="content">
+        <div data-role="content" class="contant">
             <ul id="list" data-role="listview" data-filter="true" data-autodividers="true">
                 <!-- Starts up as an empty list.  Items are added from
                  localStorage in $(document).ready() -->
             </ul>
-        </div>
 
-        <div data-role="footer" data-position="fixed">
-            <nav>
-                <a href="#addPage" data-role="button" data-inline="true" data-mini="true" data-icon="plus" id="add">Add
-                    Item</a>
+            <nav class="text-center footer">
+                
+                <a href="#addPage" data-role="button" data-inline="true" data-mini="true" data-icon="plus" id="add"  class=""></a>
             </nav>
         </div>
     </div>
@@ -83,7 +81,7 @@
             <nav class="text-center footer">
                 <a href="#main" id="update" data-role="button" data-inline="true" data-mini="true"
                     data-icon="refresh">Update</a>
-                <a href="#main" id="del" data-role="button" data-inline="true" data-mini="true" data-icon="minus">Delete
+                <a href="#main" id="del" data-role="button" data-inline="true" data-mini="true" data-icon="delete">Delete
                     Item</a>
             </nav>
         </div>
@@ -115,16 +113,15 @@
             <label for="bday">Birthday:</label>
             <input type="date" id="bday" />
             </form>
-        </div>
 
-        <div data-role="footer" data-position="fixed">
             <nav class="text-center footer">
                 <a href="#main" id="save" data-role="button" data-inline="true" data-mini="true"
-                    data-icon="refresh">Save</a>
+                    data-icon="check">Save</a>
                 <a href="#main" id="cancel" data-role="button" data-inline="true" data-mini="true"
                     data-icon="minus">Cancel</a>
             </nav>
         </div>
+
     </div>
 
 
