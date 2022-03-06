@@ -8,8 +8,8 @@ $(document).ready(function () {
     $("#add").click(function () {
         currentEntry = "";
         // $("#fullname").val(null);
-        // let e = new Entry();    // An empty one.
-        // displayEntry(e);
+        let e = new Entry();    // An empty one.
+        displayEntry(e);
 
     });
 
@@ -32,12 +32,13 @@ $(document).ready(function () {
 
     // 4. The "Save" button, for saving a new entry details...
     $("#save").click(function () {
-        addNewEntry();
+        currentEntry = addNewEntry();
+        console.log("#save",currentEntry);
         displayEntryList("#list");
         saveList();
     });
 
-    // 4. The "Cancel" button, for saving a new entry details...
+    // 5. The "Cancel" button, for saving a new entry details...
     $("#cancel").click(function () {
     });
 });
@@ -87,6 +88,7 @@ let entries = [];		// Start with a simple array
 
 function addEntry(name, mobile, gender, email, dob) {
     let e = new Entry(name, mobile, gender, email, dob);
+    console.log("addEntry",e);
     entries.push(e);
     sortEntries();
     return e;
@@ -169,11 +171,13 @@ function updateEntry() {
 }
 
 function addNewEntry() {
-    let name = $("#fullname").val(),
-        mobile = $("#mobile").val(),
-        gender = $("#gender").val(), //1,2
-        email = $("#email").val(),
-        dob = $("#bday").val();
+    console.log("fullName",$("#fullname2").val());
+    let name = $("#fullname2").val(),
+        mobile = $("#mobile2").val(),
+        gender = $("#gender2").val(),
+        email = $("#email2").val(),
+        dob = $("#bday2").val();
+        console.log("from new entry",name);
     if (name !== "") {
         return addEntry(name, mobile, gender, email, dob);
     } else {
