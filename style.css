@@ -21,14 +21,6 @@
 }
 
 #add{
-    padding: 16px !important;
-    border-radius: 26px !important;
-    -webkit-border-radius: 26px !important;
-    -moz-border-radius: 26px !important;
-    -ms-border-radius: 26px !important;
-    -o-border-radius: 26px !important;
-    height: 20px;
-    width:20px;
     text-align: center;  
 
 }
@@ -43,7 +35,10 @@ height: 180px !important;
 
 }
 .bgImage{
-    background-position: cover;
+    height:100%;
+    background-repeat: no-repeat;
+    background-image: url("images/leaf.jpg");
+    background-size: cover;
     background-image: url("images/leaf.jpg");
 }
 .content{
@@ -118,8 +113,10 @@ h1{
 #main{
     background-color:var(--forth-color);
     padding-top: 15px;
-    background-position: cover;
+    height:100%;
+    background-repeat: no-repeat;
     background-image: url("images/leaf.jpg");
+    background-size: cover;
 }
 .contant , #list ,li{
     background-color: transparent !important;
