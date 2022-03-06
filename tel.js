@@ -19,23 +19,23 @@ var currentEntry = "";
  * This is a very good place to set up things like event handlers for user interactions, since we
  * have a guarantee that the object the event handlers refer to are part of the DOM now.
  */
-$(document).ready(function() {
+$(document).ready(function () {
     // Run the start-up routine, which, in this case, loads the current list of entries from
     // local storage and displays them on the main (list) page...
     init();
 
     // Now install the event handlers for buttons the user can click or tap on.
     // 1. The "Add" button (for adding a new entry)...
-    $("#add").click(function() {
+    $("#add").click(function () {
         currentEntry = "";
         var e = new Entry();    // An empty one.
         displayEntry(e);
-        
+
     });
 
     // 2. The "Del" button, for deleting an entry...
-    $("#del").click(function() {
-        if(currentEntry !== ""){
+    $("#del").click(function () {
+        if (currentEntry !== "") {
             removeEntry(currentEntry);
             currentEntry = "";
             displayEntryList("#list");
@@ -44,8 +44,8 @@ $(document).ready(function() {
     });
 
     // 3. The "Update" button, for updating an entry's details...
-    $("#update").click(function() {
-        if(currentEntry === ""){
+    $("#update").click(function () {
+        if (currentEntry === "") {
             addNewEntry();
         } else {
             updateEntry();
@@ -59,14 +59,14 @@ $(document).ready(function() {
 
 // This selector applies to all <a> elements inside the <ul> with the id "list".
 // $(this) is a jQuery object referencing the actual <a> element that was clicked on.
-$(document).on('click', "#list a", function() {
+$(document).on('click', "#list a", function () {
     currentEntry = $(this).text();                  // The text in the <a> element, which is an Entry's displayName()
     var e = getEntryFromDisplayName(currentEntry);  // This get a reference to the actual Entry
     displayEntry(e);                                // This puts it into the form on the 'entry' page
 });
 
 // This gets call when the app is first loaded...
-function init(){
+function init() {
     loadList();
     displayEntryList("#list");
 }
@@ -80,7 +80,7 @@ function init(){
  * @param dob - their date of birth (in string format)
  * @constructor
  */
-var Entry = function(name, mobile, home, email, dob) {
+var Entry = function (name, mobile, home, email, dob) {
     this.name = name;
     this.mobile = mobile;
     this.home = home;
@@ -93,7 +93,7 @@ var Entry = function(name, mobile, home, email, dob) {
  * return "Smith, John", which simplifies organising the entries alphabetically...
  * @returns {string}
  */
-Entry.prototype.displayName = function() {
+Entry.prototype.displayName = function () {
     var firstnames, surname;
     firstnames = this.name.substring(0, this.name.lastIndexOf(" ")).trim();
     surname = this.name.substring(this.name.lastIndexOf(" ") + 1);
@@ -104,10 +104,10 @@ Entry.prototype.displayName = function() {
  * This tells us (true/false) if today is this entry's birthday.
  * @returns {boolean}
  */
-Entry.prototype.isBirthday = function() {
+Entry.prototype.isBirthday = function () {
     var bday = this.dob;
     bday.fullYear = new Date().fullYear;
-    if(bday.getDate() === new Date().getDate()) {
+    if (bday.getDate() === new Date().getDate()) {
         return true;
     } else {
         return false;
@@ -121,7 +121,7 @@ Entry.prototype.isBirthday = function() {
  * @param surname
  * @returns {*}
  */
-Entry.prototype.changeName = function(firstnames, surname){
+Entry.prototype.changeName = function (firstnames, surname) {
     this.name = firstnames.trim() + " " + surname.trim();
     return this;
 }
@@ -154,15 +154,15 @@ function addEntry(name, mobile, home, email, dob) {
  * @param name
  * @returns {null}
  */
-function removeEntry(name){
+function removeEntry(name) {
     var pos = -1, index, entry = null;
-    for(index = 0; index < entries.length; index += 1){
-        if(name === entries[index].displayName()) {
+    for (index = 0; index < entries.length; index += 1) {
+        if (name === entries[index].displayName()) {
             pos = index;
             break;
         }
     }
-    if(pos > -1) {
+    if (pos > -1) {
         entry = entries[pos];
         entries.splice(pos, 1);
     }
@@ -174,11 +174,11 @@ function removeEntry(name){
  * @returns {Array}
  */
 function sortEntries() {
-    entries.sort(function(a, b) {
-        if(a.displayName() < b.displayName()){
+    entries.sort(function (a, b) {
+        if (a.displayName() < b.displayName()) {
             return -1;
         }
-        if(a.displayName() > b.displayName()) {
+        if (a.displayName() > b.displayName()) {
             return 1;
         }
         return 0;
@@ -193,9 +193,9 @@ function sortEntries() {
  * (entry) page...
  * @returns {string}
  */
-function entryList(){
+function entryList() {
     var index, list = "";
-    for(index = 0; index < entries.length; index += 1){
+    for (index = 0; index < entries.length; index += 1) {
         list += "<li><a href='#entry'>" + entries[index].displayName() + "</a></li>"; // name='item'
     }
     return list;
@@ -207,7 +207,7 @@ function entryList(){
  * @param listElement
  * @returns {*|jQuery|HTMLElement}
  */
-function displayEntryList(listElement){
+function displayEntryList(listElement) {
     $(listElement).html(entryList()).listview().listview('refresh');
     return $(listElement);
 }
@@ -218,10 +218,10 @@ function displayEntryList(listElement){
  * @param displayName
  * @returns {*}
  */
-function getEntryFromDisplayName(displayName){
+function getEntryFromDisplayName(displayName) {
     var index, e;
-    for(index = 0; index < entries.length; index += 1){
-        if(entries[index].displayName() === displayName){
+    for (index = 0; index < entries.length; index += 1) {
+        if (entries[index].displayName() === displayName) {
             return entries[index];
         }
     }
@@ -232,20 +232,22 @@ function getEntryFromDisplayName(displayName){
  * This puts the properties of the given Entry object into the form fields on the entry page...
  * @param e
  */
-function displayEntry(e){
+function displayEntry(e) {
     $("#fullname").val(e.name);
     $("#mobile").val(e.mobile);
-    $("#mobilebutton").attr("href", "tel:"+ e.mobile);
+    $("#mobilebutton").attr("href", "tel:" + e.mobile);
     $("#email").val(e.email);
-    $("#mailbutton").attr("href", "mailto:"+ e.email);
+    $("#mailbutton").attr("href", "mailto:" + e.email);
     $("#home").val(e.home);
-    $("#homebutton").attr("href", "tel:"+ e.home);
+    $("#homebutton").attr("href", "tel:" + e.home);
     // This is a bit of a beast, to do with the way the HTML <input> date type
     // expects dates to be formatted.  We want the date only (yyyy-mm-dd) and
     // that dob is a full ISO date.  .toISOString() returns yyyy-mm-mm hh:mm or
     // something like that.  We therefore need to extract the first 10 characters
     // from the ISO date string...
-    $("#bday").val(e.dob.toISOString().substring(0, 10));
+    var bdate = e.dob;
+    if(bdate != 'Invalid Date')
+        $("#bday").val(e.dob.toISOString().substring(0, 10));
     $("#name").text(e.name);
 }
 
@@ -253,7 +255,7 @@ function displayEntry(e){
  * This updates the properties of the current entry according to the form fields on the
  * entry page...
  */
-function updateEntry(){
+function updateEntry() {
     var e = getEntryFromDisplayName(currentEntry);
     e.name = $("#fullname").val();
     e.mobile = $("#mobile").val();
@@ -266,13 +268,13 @@ function updateEntry(){
  * Adds a new entry based on the contents of the form fields on the entry page...
  * @returns {*}
  */
-function addNewEntry(){
+function addNewEntry() {
     var name = $("#fullname").val(),
         mobile = $("#mobile").val(),
         home = $("#home").val(),
         email = $("#email").val(),
         dob = $("#bday").val();
-    if(name !== "") {
+    if (name !== "") {
         return addEntry(name, mobile, home, email, dob);
     } else {
         return null;
@@ -282,7 +284,7 @@ function addNewEntry(){
 /**
  * Saves the whole list of entries to local storage...
  */
-function saveList(){
+function saveList() {
     var strList = JSON.stringify(entries);
     localStorage.phoneBook = strList;
 }
@@ -290,13 +292,13 @@ function saveList(){
 /**
  * Loads the list of entries from local storage...
  */
-function loadList(){
+function loadList() {
     var strList;
     strList = localStorage.phoneBook;
-    if(strList){
+    if (strList) {
         entries = JSON.parse(strList);
         var proto = new Entry();
-        for(e in entries){
+        for (e in entries) {
             entries[e].__proto__ = proto;
             entries[e].dob = new Date(entries[e].dob);
         }
